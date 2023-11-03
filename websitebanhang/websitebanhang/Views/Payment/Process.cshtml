@@ -1,0 +1,54 @@
+﻿@model string
+@{
+    ViewBag.Title = "Process";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Thanh toán</h2>
+
+@using (Html.BeginForm("Process", "Payment", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="email">Địa chỉ Email:</label>
+        @Html.TextBoxFor(m => m, new { @class = "form-control", required = "required" })
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="btnThanhToan">Thanh toán</button>
+}
+
+<script>
+    document.getElementById("btnThanhToan").addEventListener("click", function (event) {
+        event.preventDefault(); // Ngăn chặn chuyển hướng mặc định
+
+        // Kiểm tra xem người dùng đã đăng nhập hay chưa
+        var isAuthenticated = @User.Identity.IsAuthenticated.ToString().ToLower();
+
+        if (isAuthenticated) {
+            // Lấy email từ tài khoản người dùng đã đăng nhập
+            var email = "@User.Identity.Name";
+
+            // Gọi hàm xử lý thanh toán
+            processPayment(email);
+        } else {
+            // Chuyển hướng đến trang đăng nhập
+            window.location.href = "@Url.Action("Login", "Account")";
+        }
+    });
+
+    function processPayment(email) {
+        // Gửi email và xử lý thanh toán
+        // Thực hiện các tác vụ khác cần thiết
+        // ...
+
+        // Chuyển hướng đến trang thành công
+        window.location.href = "@Url.Action("Success", "Payment")";
+    }
+</script>
