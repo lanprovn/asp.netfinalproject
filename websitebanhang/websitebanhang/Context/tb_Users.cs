@@ -14,11 +14,20 @@ namespace websitebanhang.Context
     
     public partial class tb_Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tb_Users()
+        {
+            this.tb_Post = new HashSet<tb_Post>();
+        }
+    
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public Nullable<bool> IsAdmin { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_Post> tb_Post { get; set; }
     }
 }

@@ -34,6 +34,14 @@ namespace websitebanhang.Controllers
             objProductsModel.ListProduct = objwebsiteBHEntities.tb_Product.ToList();
             return View(objProductsModel);
         }
+        public ActionResult Search(string query)
+        {
+            // Thực hiện tìm kiếm sản phẩm dựa trên từ khóa query
+            var searchResults = objwebsiteBHEntities.tb_Product.Where(p => p.Name.Contains(query)).ToList();
+
+            // Truyền kết quả tìm kiếm đến view
+            return View(searchResults);
+        }
 
         public ActionResult Detail(int Id)
         {

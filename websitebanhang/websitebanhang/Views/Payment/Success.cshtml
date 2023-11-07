@@ -13,7 +13,15 @@
 <br />
 <br />
 <br />
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Xóa giỏ hàng từ sessionStorage
+        sessionStorage.removeItem("cart");
 
+        // Hoặc xóa giỏ hàng từ cookie
+        document.cookie = "cart=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    });
+</script>
 <h2>Cảm ơn bạn đã đặt hàng!</h2>
 <p>Chúng tôi đã gửi thông báo thanh toán đến địa chỉ email của bạn.</p>
 

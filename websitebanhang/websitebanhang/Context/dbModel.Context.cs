@@ -32,5 +32,6 @@ namespace websitebanhang.Context
         public virtual DbSet<tb_Slider> tb_Slider { get; set; }
         public virtual DbSet<tb_Users> tb_Users { get; set; }
         public virtual DbSet<tb_Order> tb_Order { get; set; }
+        public virtual DbSet<tb_Post> tb_Post { get; set; }
     }
 }

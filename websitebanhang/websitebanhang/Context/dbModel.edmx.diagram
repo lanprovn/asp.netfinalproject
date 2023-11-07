@@ -12,6 +12,10 @@
         <EntityTypeShape EntityType="WebsiteBHModel.tb_Slider" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebsiteBHModel.tb_Users" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebsiteBHModel.tb_Order" Width="1.5" PointX="4.75" PointY="1" />
+        <EntityTypeShape EntityType="WebsiteBHModel.tb_Post" Width="1.5" PointX="9" PointY="0.75" />
+        <AssociationConnector Association="WebsiteBHModel.FK__tb_Post__BrandId__06CD04F7" />
+        <AssociationConnector Association="WebsiteBHModel.FK__tb_Post__Categor__07C12930" />
+        <AssociationConnector Association="WebsiteBHModel.FK__tb_Post__UserId__08B54D69" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

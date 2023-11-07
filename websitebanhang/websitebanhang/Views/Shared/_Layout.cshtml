@@ -44,6 +44,24 @@
         </div>
         <div class="py-2 bg-light">
             <div class="container">
+                <div class="site-section" id="search">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 text-center">
+                                <h2 class="section-title mb-3">Tìm kiếm sản phẩm</h2>
+                                <form id="search-form" method="get" action="@Url.Action("Search", "Products")">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="query" class="form-control" placeholder="Nhập tên sản phẩm...">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row align-items-center">
                     <div class="col-lg-9 d-none d-lg-block">
                         <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span>Nhấc máy lên và gọi cho chúng tôi đi nào <3</a>
@@ -292,8 +310,6 @@
             cartCountElement.innerText = cartCount.toString() + " sản phẩm";
             cartItemsElement.innerText = cartItems.toString();
 
-            // Lưu số lượng sản phẩm vào session (nếu sử dụng session trong ASP.NET)
-            // Ví dụ: Session["count"] = cartCount;
         });
     </script>
 

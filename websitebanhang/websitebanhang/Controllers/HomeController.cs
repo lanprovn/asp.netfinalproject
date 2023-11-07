@@ -23,7 +23,17 @@ namespace websitebanhang.Controllers
             objHomeModel.ListSlider = objwebsiteBHEntities.tb_Slider.ToList();
             return View(objHomeModel);
         }
+        public ActionResult Search(string searchString)
+        {
+            HomeModel home = new HomeModel();
+            home.ListProduct = objwebsiteBHEntities.tb_Product.Where(p => p.Slug.Contains(searchString)).ToList();
+            home.ListCategory = objwebsiteBHEntities.tb_Category.ToList();
+            home.ListSlider = objwebsiteBHEntities.tb_Slider.ToList();
 
+            ViewBag.SearchString = searchString; // Truyền chuỗi tìm kiếm vào ViewBag
+
+            return View(home);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

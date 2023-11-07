@@ -14,6 +14,12 @@ namespace websitebanhang.Context
     
     public partial class tb_Brand
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tb_Brand()
+        {
+            this.tb_Post = new HashSet<tb_Post>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Avatar { get; set; }
@@ -23,5 +29,8 @@ namespace websitebanhang.Context
         public Nullable<System.DateTime> CreatedOnUtc { get; set; }
         public Nullable<System.DateTime> UpdateOnUtc { get; set; }
         public Nullable<bool> Deleted { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_Post> tb_Post { get; set; }
     }
 }

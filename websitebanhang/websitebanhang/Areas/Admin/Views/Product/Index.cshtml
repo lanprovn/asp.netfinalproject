@@ -1,52 +1,64 @@
-﻿@using PagedList;
+﻿@model PagedList.IPagedList<websitebanhang.Context.tb_Product>
+
 @using PagedList.Mvc;
-@model PagedList.IPagedList<websitebanhang.Context.tb_Product>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Quản lý tất cả sản phẩm</h2>
+<h2>Index</h2>
 
-@using (Html.BeginForm("Index", "Product", FormMethod.Get))
-{
-    <p>
-        Tìm tên sản phẩm: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Tìm kiếm" />
-    </p>
-}
 <p>
-    @Html.ActionLink("Tạo mới", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+            Tên sản phẩm
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Avatar)
+            Avatar
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().CategoryId)
+            Mã danh mục
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().ShortDes)
+            Mô tả ngắn
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Price)
+            Mô tả đầy đủ
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().PriceDiscount)
+            Giá
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().TypeId)
+            Giá khuyến mãi
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Slug)
+            Loại sản phẩm
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().BrandId)
+            Slug
+        </th>
+        <th>
+            Mã nhãn hiệu
+        </th>
+        <th>
+            Đã xoá
+        </th>
+        <th>
+            Hiển thị trang chủ
+        </th>
+        <th>
+            Thứ tự hiển thị
+        </th>
+        <th>
+            Ngày tạo
+        </th>
+        <th>
+            Ngày cập nhật
         </th>
         <th></th>
     </tr>
@@ -67,6 +79,9 @@
                 @Html.DisplayFor(modelItem => item.ShortDes)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.FullDescription)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
@@ -82,6 +97,21 @@
                 @Html.DisplayFor(modelItem => item.BrandId)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Deleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowOnHomePage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOnUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateOnUtc)
+            </td>
+            <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
@@ -90,7 +120,29 @@
     }
 </table>
 
-<div>
-    <p>Trang @(Model.PageNumber) / <span style="margin: 5px">@Model.PageCount</span></p>
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
+<div class="text-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.Classic)
 </div>
+
+<!-- Thêm tài liệu CKEditor vào trang -->
+<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+
+<!-- Khởi tạo CKEditor cho việc tải lên hình ảnh -->
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            editor.ui.view.editable.extendTemplate({
+                attributes: {
+                    class: 'custom-ck-editor'
+                }
+            });
+
+            editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                return new MyUploadAdapter(loader);
+            };
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>

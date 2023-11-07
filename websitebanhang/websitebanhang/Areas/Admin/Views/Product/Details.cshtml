@@ -8,12 +8,13 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Product</h4>
+    <h4>tb_Product</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
@@ -21,6 +22,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.Avatar)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.Avatar)
         </dd>
@@ -28,27 +30,15 @@
         <dt>
             @Html.DisplayNameFor(model => model.CategoryId)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.CategoryId)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TypeId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TypeId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BrandId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.BrandId)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.ShortDes)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.ShortDes)
         </dd>
@@ -56,6 +46,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.FullDescription)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.FullDescription)
         </dd>
@@ -63,6 +54,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.Price)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.Price)
         </dd>
@@ -70,20 +62,39 @@
         <dt>
             @Html.DisplayNameFor(model => model.PriceDiscount)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.PriceDiscount)
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.TypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeId)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Slug)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.Slug)
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.BrandId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrandId)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Deleted)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.Deleted)
         </dd>
@@ -91,6 +102,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.ShowOnHomePage)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.ShowOnHomePage)
         </dd>
@@ -98,6 +110,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.DisplayOrder)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.DisplayOrder)
         </dd>
@@ -105,6 +118,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.CreatedOnUtc)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.CreatedOnUtc)
         </dd>
@@ -112,12 +126,13 @@
         <dt>
             @Html.DisplayNameFor(model => model.UpdateOnUtc)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.UpdateOnUtc)
         </dd>
+
     </dl>
 </div>
-
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
